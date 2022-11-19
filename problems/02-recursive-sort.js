@@ -10,12 +10,17 @@
 */
 
 function sort(nums) {
-    // Your code here
+  if (nums.length === 0) return [];
+  let min = Math.min(...nums);
+  let idx = nums.indexOf(min);
+  nums.splice(idx, 1);
+
+  return [min, ...sort(nums)];
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
-    module.exports = sort;
+  module.exports = sort;
 } catch (e) {
-    module.exports = null;
+  module.exports = null;
 }

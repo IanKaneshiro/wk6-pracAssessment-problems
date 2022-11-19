@@ -26,12 +26,23 @@ console.log(preserveFunc2('boolean', 'string', 'undefined')); // prints [ undefi
 */
 
 function preserveTypes(array) {
-    // Your code here
+  return (...type) => {
+    let res = [];
+    for (let i = 0; i < array.length; i++) {
+      let el = array[i];
+      for (let i = 0; i < type.length; i++) {
+        if (typeof el === type[i]) {
+          res.push(el);
+        }
+      }
+    }
+    return res;
+  };
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
-    module.exports = preserveTypes;
+  module.exports = preserveTypes;
 } catch (e) {
-    module.exports = null;
+  module.exports = null;
 }
